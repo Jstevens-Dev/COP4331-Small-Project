@@ -7,27 +7,36 @@
   <head>
     <meta charset="utf-8">
     <title>Login | Contact Manager</title>
+    <script type="text/javascript" src="js/md5.js"></script>
+	  <script type="text/javascript" src="js/code.js"></script>
     <link rel="stylesheet" href="\css\style.css">
   </head>
   <body>
-    <div class="center">
+    <div class="box">
       <h1>Welcome Back!</h1>
-      <form method="post">
+
+      <div>
+
         <div class="txt_field">
-          <input type="text" required>
+          <input type="text" id="loginName" required>
           <span></span>
           <label>Username</label>
         </div>
+
         <div class="txt_field">
-          <input type="password" required>
+          <input type="password" id="loginPassword" required>
           <span></span>
           <label>Password</label>
         </div>
-        <input type="submit" value="Login">
+
+        <input type="submit" value="Login" class="buttons" onclick="doLogin();">
+        <!--button type="submit" value="Login" class="buttons" onclick="doLogin();"> Submit </button-->
+
         <div class="signup_link">
           New User? <a href="Register.html">Sign up</a>
         </div>
-      </form>
+
+      </div>
     </div>
   </body>
 </html>

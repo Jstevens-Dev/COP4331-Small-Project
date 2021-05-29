@@ -12,32 +12,35 @@ body{
   height: 100vh;
   overflow: hidden;
 }
-.center{
+.box{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
+  width: 400px;
   background: white;
   border-radius: 40px;
   box-shadow: 0px 0px 20px 10px #eeeeee;
+  padding: 40px;
 }
-.center h1{
+.box h1{
   text-align: center;
   padding: 20px 0;
   border-bottom: 1px solid silver;
 }
-.center form{
-  padding: 0 40px;
+.box div{
+  padding: 0 5px;
   box-sizing: border-box;
 }
-form .txt_field{
+div .txt_field{
   position: relative;
   border-bottom: 2px solid #adadad;
   margin: 30px 0;
 }
+
 .txt_field input{
   width: 100%;
+  margin-left: 0;
   padding: 0 5px;
   height: 40px;
   font-size: 16px;
@@ -98,6 +101,7 @@ input[type="submit"]:hover{
   border-color: #006eff;
   transition: .5s;
 }
+
 .signup_link{
   margin: 30px 0;
   text-align: center;
