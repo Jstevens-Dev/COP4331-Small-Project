@@ -107,6 +107,38 @@ function doLogout()
 	window.location.href = "Login.html";
 }
 
+function addUser()
+{
+	var firstName = document.getElementById("colorText").value;
+	var lastName = document.getElementById("lastName").value;
+	var userName = document.getElementById("userName").value;
+	var userPassword = document.getElementById("password").value;
+	document.getElementById("addUserResult").innerHTML = "";
+	
+	var jsonPayload = '{"firstname" : "' + firstName + '", "lastname" : "' + lastName + '", "username" : "' + userName + '", "password" : ' + userPassword + '}';
+	var url = urlBase + '/Register.' + extension;
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				document.getElementById("addUserResult").innerHTML = "User has been added";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("addUserResult").innerHTML = err.message;
+	}
+	
+}
+
 function addColor()
 {
 	var newColor = document.getElementById("colorText").value;
