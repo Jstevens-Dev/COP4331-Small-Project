@@ -17,8 +17,8 @@ function doLogin()
 	
 	document.getElementById("loginResult").innerHTML = "";
 
-//	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
-	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
+//	var jsonPayload = '{"username" : "' + login + '", "password" : "' + hash + '"}';
+	var jsonPayload = '{"username" : "' + login + '", "password" : "' + password + '"}';
 	var url = urlBase + '/Login.' + extension;
 
 	var xhr = new XMLHttpRequest();
@@ -44,7 +44,7 @@ function doLogin()
 
 				saveCookie();
 	
-				window.location.href = "index.php";
+				window.location.href = "index.html";
 				
 			}
 		};
@@ -90,7 +90,7 @@ function readCookie()
 	
 	if( userId < 0 )
 	{
-		window.location.href = "index.html";
+		window.location.href = "Login.html";
 	}
 	else
 	{
@@ -104,7 +104,7 @@ function doLogout()
 	firstName = "";
 	lastName = "";
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-	window.location.href = "index.html";
+	window.location.href = "Login.html";
 }
 
 function addColor()
