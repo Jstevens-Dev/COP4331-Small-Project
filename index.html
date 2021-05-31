@@ -30,7 +30,7 @@
 <nav class="navbar navbar-light" style="background-color: #006eff;">
     <h1 style="color:white;">Contact Manager</h1>
     <form class="form-inline">
-        <button type="button" class="btn btn-success"> <i class="fas fa-user-plus"></i> Add Contact </button>
+        <button type="button" class="btn btn-success" onclick="openNewForm();"> <i class="fas fa-user-plus"></i> Add Contact </button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input class="form-control mr-sm-2" id="searchText" type="search" placeholder="Search Contact..." aria-label="Search">
         <button type="button" class="btn btn-outline-light"> <i class="fas fa-search"></i> </i></button> 
@@ -85,6 +85,32 @@
                     <label>Phone Number</label>
                 </div>
                 <button type="button" id="cancel" class="btn btn-outline-primary" onclick="closeForm();">Cancel</button>
+                <span></span>
+                <button type="submit" class="btn btn-outline-success">Update</button>
+                
+            </div>
+            <div id="newContact" style="display: none;">
+                <div class="txt_field" >
+                    <input type="text" required>
+                    <span></span>
+                    <label>First Name</label>
+                </div>
+                <div class="txt_field">
+                    <input type="text" required>
+                    <span></span>
+                    <label>Last Name</label>
+                </div>
+                <div class="txt_field">
+                    <input type="text" required>
+                    <span></span>
+                    <label>Email</label>
+                </div>
+                <div class="txt_field">
+                    <input type="text" required>
+                    <span></span>
+                    <label>Phone Number</label>
+                </div>
+                <button type="button" id="cancel" class="btn btn-outline-primary" onclick="closeNewForm();">Cancel</button>
                 <span></span>
                 <button type="submit" class="btn btn-outline-success">Update</button>
                 

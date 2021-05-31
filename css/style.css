@@ -115,3 +115,27 @@ input[type="submit"]:hover{
 .signup_link a:hover{
   text-decoration: underline;
 }
+
+#contactInfo{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width:50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 40px;
+  box-shadow: 0px 0px 20px 10px #eeeeee;
+  padding: 40px;
+}
+
+#newContact{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width:50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 40px;
+  box-shadow: 0px 0px 20px 10px #eeeeee;
+  padding: 40px;
+}

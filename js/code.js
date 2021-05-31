@@ -109,13 +109,13 @@ function doLogout()
 
 function addUser()
 {
-	var firstName = document.getElementById("colorText").value;
+	var firstName = document.getElementById("firstName").value;
 	var lastName = document.getElementById("lastName").value;
 	var userName = document.getElementById("userName").value;
 	var userPassword = document.getElementById("password").value;
 	document.getElementById("addUserResult").innerHTML = "";
 	
-	var jsonPayload = '{"firstname" : "' + firstName + '", "lastname" : "' + lastName + '", "username" : "' + userName + '", "password" : ' + userPassword + '}';
+	var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "userName" : "' + userName + '", "password" : ' + userPassword + '}';
 	var url = urlBase + '/Register.' + extension;
 	
 	var xhr = new XMLHttpRequest();
@@ -209,4 +209,20 @@ function searchColor()
 		document.getElementById("colorSearchResult").innerHTML = err.message;
 	}
 	
+}
+
+function openForm(){
+	document.getElementById("contactInfo").style.display = "block";
+}
+
+function closeForm(){
+	document.getElementById("contactInfo").style.display = "none";
+}
+
+function openNewForm(){
+	document.getElementById("newContact").style.display="block";
+}
+
+function closeNewForm(){
+	document.getElementById("newContact").style.display="none";
 }
