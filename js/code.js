@@ -35,7 +35,7 @@ function doLogin()
 		
 				if( userId < 1 )
 				{		
-					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+					document.getElementById("loginResult").innerHTML = "Username/Password incorrect";
 					return;
 				}
 		
@@ -213,6 +213,7 @@ function searchColor()
 
 function openForm(){
 	document.getElementById("contactInfo").style.display = "block";
+	document.getElementById("newContact").style.display="none";
 }
 
 function closeForm(){
@@ -225,4 +226,5 @@ function openNewForm(){
 
 function closeNewForm(){
 	document.getElementById("newContact").style.display="none";
+	document.getElementById("contactInfo").style.display = "none";
 }
