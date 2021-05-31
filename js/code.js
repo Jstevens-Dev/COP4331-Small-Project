@@ -115,7 +115,7 @@ function addUser()
 	var userPassword = document.getElementById("password").value;
 	document.getElementById("addUserResult").innerHTML = "";
 	
-	var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "userName" : "' + userName + '", "password" : "' + userPassword + '" '}';
+	var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "userName" : "' + userName + '", "password" : "' + userPassword + '" }';
 	var url = urlBase + '/Register.' + extension;
 	
 	var xhr = new XMLHttpRequest();
