@@ -112,10 +112,10 @@ function addUser()
 	var firstName = document.getElementById("firstName").value;
 	var lastName = document.getElementById("lastName").value;
 	var userName = document.getElementById("userName").value;
-	var userPassword = document.getElementById("password").value;
+	var password = document.getElementById("password").value;
 	document.getElementById("addUserResult").innerHTML = "";
 	
-	var jsonPayload = '{"firstname" : "' + firstName + '", "lastname" : "' + lastName + '", "username" : "' + userName + '", "password" : "' + userPassword + '" }';
+	var jsonPayload = '{"firstname" : "' + firstName + '", "lastname" : "' + lastName + '", "username" : "' + userName + '", "password" : "' + password + '"}';
 	var url = urlBase + '/Register.' + extension;
 	
 	var xhr = new XMLHttpRequest();
@@ -138,7 +138,6 @@ function addUser()
 	}
 	
 }
-
 function addColor()
 {
 	var newColor = document.getElementById("colorText").value;
@@ -228,3 +227,4 @@ function closeNewForm(){
 	document.getElementById("newContact").style.display="none";
 	document.getElementById("contactInfo").style.display = "none";
 }
+
