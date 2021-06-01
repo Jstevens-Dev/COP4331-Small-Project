@@ -175,10 +175,10 @@ function addContact()
 
 function searchContact()
 {
-	var firstName = document.getElementById("firstName").value;
-	var lastName = document.getElementById("lastName").value;
-	var userName = document.getElementById("userName").value;
-	var password = document.getElementById("password").value;
+	var firstName = document.getElementById("firstname").value;
+	var lastName = document.getElementById("lastname").value;
+	var email = document.getElementById("email").value;
+	var phoneNO = document.getElementById("phoneNO").value;
 	document.getElementById("contactSearchResult").innerHTML = "";
 	
 	var contactList = "";
@@ -217,6 +217,18 @@ function searchContact()
 		document.getElementById("contactSearchResult").innerHTML = err.message;
 	}
 	
+}
+
+function deleteContact()
+{
+
+
+}
+
+function updateContact()
+{
+
+
 }
 
 function addColor()
