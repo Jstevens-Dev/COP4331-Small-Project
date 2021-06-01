@@ -94,29 +94,31 @@
             <div id="newContact" style="display: none;">
                 <h2 style="color:black;">Add Contact</h2>
                 <div class="txt_field" >
-                    <input type="text" required>
+                    <input id="newContactFirstName" type="text" required>
                     <span></span>
                     <label>First Name</label>
                 </div>
                 <div class="txt_field">
-                    <input type="text" required>
+                    <input id="newContactLastName" type="text" required>
                     <span></span>
                     <label>Last Name</label>
                 </div>
                 <div class="txt_field">
-                    <input type="text" required>
+                    <input id="newContactEmail" type="text" required>
                     <span></span>
                     <label>Email</label>
                 </div>
                 <div class="txt_field">
-                    <input type="text" required>
+                    <input id="newContactPhoneNO" type="text" required>
                     <span></span>
                     <label>Phone Number</label>
                 </div>
                 <button type="button" id="cancel" class="btn btn-outline-primary" onclick="closeNewForm();">Cancel</button>
                 <span></span>
                 <button type="submit" class="btn btn-outline-success">Create</button>
-                
+                <div>
+                    <span id="addContactResult"></span>
+                </div>
             </div>
         </div>
     </div>

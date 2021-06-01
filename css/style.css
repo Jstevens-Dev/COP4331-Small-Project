@@ -153,4 +153,9 @@ text-align: center;
 div .register_result{
   color: red;
   text-align: center;
-  }
+}
+
+div .addContactResult{
+  color: blue;
+  text-align: center;
+}
