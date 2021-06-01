@@ -181,7 +181,7 @@ function searchContact()
 	var password = document.getElementById("password").value;
 	document.getElementById("contactSearchResult").innerHTML = "";
 	
-	var colorList = "";
+	var contactList = "";
 	
     var jsonPayload = '{"firstname" : "' + firstName + '", "lastname" : "' + lastName + '", "email" : "' + email + '", "phoneNO" : "' + phoneNO + '", "userID" : ' + userId + '}';
 	var url = urlBase + '/SearchContacts.' + extension;
@@ -200,14 +200,14 @@ function searchContact()
 				
 				for( var i=0; i<jsonObject.results.length; i++ )
 				{
-					colorList += jsonObject.results[i];
+					contactList += jsonObject.results[i];
 					if( i < jsonObject.results.length - 1 )
 					{
-						colorList += "<br />\r\n";
+						contactList += "<br />\r\n";
 					}
 				}
 				
-				document.getElementsByTagName("contactSearchResult")[0].innerHTML = contactList;
+				document.getElementsByTagName("p")[0].innerHTML = contactList;
 			}
 		};
 		xhr.send(jsonPayload);
