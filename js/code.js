@@ -131,6 +131,8 @@ function addUser()
 			}
 		};
 		xhr.send(jsonPayload);
+
+		window.location.href = "Login.html";
 	}
 	catch(err)
 	{
@@ -138,6 +140,39 @@ function addUser()
 	}
 	
 }
+
+function addContact()
+{
+	var firstName = document.getElementById("newContactFirstName").value;
+	var lastName = document.getElementById("newContactLastName").value;
+	var email = document.getElementById("newContactEmail").value;
+	var phoneNO = document.getElementById("newContactPhoneNO").value;
+	document.getElementById("addContactResult").innerHTML = "";
+	
+	var jsonPayload = '{"firstname" : "' + firstName + '", "lastname" : "' + lastName + '", "email" : "' + email + '", "phoneNO" : "' + phoneNO + '", "userID" : ' + userId + '}';
+	var url = urlBase + '/AddContact.' + extension;
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				document.getElementById("addContactResult").innerHTML = "Contact has been added";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("addContactResult").innerHTML = err.message;
+	}
+	
+}
+
 function addColor()
 {
 	var newColor = document.getElementById("colorText").value;
