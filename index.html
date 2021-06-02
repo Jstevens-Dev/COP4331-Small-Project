@@ -42,29 +42,29 @@
 <body>
     <div>
         <div class="container">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Phone Number
-                            <th>Action</th>
-                        </tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn btn-info" onclick="openForm();"> <i class="fas fa-user-edit"></i> Edit </button>
-                                <a href="" class="btn btn-danger"> <i class="fas fa-user-minus"></i> Delete </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <p id="contactList"></p>
-                        </tr>
-                    </thead>
-                </table>
+            <table class="table" id="contactTable">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone Number
+                        <th>Action</th>
+                    </tr>   
+                </thead>
+                <tbody id="tBody">
+                    </tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <!--button class="btn btn-info" onclick="openForm();"> <i class="fas fa-user-edit"></i> Edit </button-->
+                        <!--a href="" class="btn btn-danger"> <i class="fas fa-user-minus"></i> Delete </a-->
+                        </td>                        
+                    </tr>
+                </tbody>
+            </table>
                 <span id="contactSearchResult"></span>
             </div>
             <div id="contactInfo" style="display: none;">
