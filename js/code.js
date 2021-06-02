@@ -204,15 +204,12 @@ function displayAllContacts(){
 
 function searchContact()
 {
-	var firstName = document.getElementById("firstname").value;
-	var lastName = document.getElementById("lastname").value;
-	var email = document.getElementById("email").value;
-	var phoneNO = document.getElementById("phoneNO").value;
+	var search = document.getElementById("searchText").value;
 	document.getElementById("contactSearchResult").innerHTML = "";
 	
 	var contactList = "";
 	
-    var jsonPayload = '{"firstname" : "' + firstName + '", "lastname" : "' + lastName + '", "email" : "' + email + '", "phoneNO" : "' + phoneNO + '", "userID" : ' + userId + '}';
+    var jsonPayload = '{"search" : "' + search + '", "userID" : ' + userId + '}';
 	var url = urlBase + '/SearchContacts.' + extension;
 	
 	var xhr = new XMLHttpRequest();
