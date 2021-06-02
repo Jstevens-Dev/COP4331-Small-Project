@@ -173,6 +173,35 @@ function addContact()
 	
 }
 
+function displayAllContacts(){
+    var jsonPayload = '{"userId : "' + userId};
+    var url = urlBase + '/ReadContact' + extension;
+
+    var contactList ="";
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+    try{
+        xhr.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                for(var 1=0; i<jsonObject.results.length; i++){
+                    contactList += jsonObject.results[i];
+                    if(I , jsonObject.results.length-1){
+                        contactList += "<br />\r\n";
+                    }
+                }
+
+                document.getElementsByTagName("p")[0].innerHTML = contactList;
+            }
+        }
+        xhr.send(jsonPayload);
+    }
+    catch(err){
+        document.getElementById("showContactResult").innerHTML = err.message;
+    }
+}
+
 function searchContact()
 {
 	var firstName = document.getElementById("firstname").value;
