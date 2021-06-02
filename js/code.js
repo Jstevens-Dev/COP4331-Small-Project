@@ -185,7 +185,7 @@ function displayAllContacts(){
     try{
         xhr.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){
-                for(var 1=0; i<jsonObject.results.length; i++){
+                for(var i=0; i<jsonObject.results.length; i++){
                     contactList += jsonObject.results[i];
                     if(I , jsonObject.results.length-1){
                         contactList += "<br />\r\n";
@@ -349,4 +349,3 @@ function closeNewForm(){
 	document.getElementById("newContact").style.display="none";
 	document.getElementById("contactInfo").style.display = "none";
 }
-
