@@ -208,9 +208,10 @@ function searchContact()
 	document.getElementById("contactSearchResult").innerHTML = "";
 	
 	var contactList = "";
+	var contactTable = document.getElementById("contactTable");
 	
     var jsonPayload = '{"search" : "' + search + '", "userID" : ' + userId + '}';
-	var url = urlBase + '/SearchContacts.' + extension;
+	var url = urlBase + '/SearchContact.' + extension;
 	
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -221,19 +222,29 @@ function searchContact()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
+				var table = document.getElementById("contactTable");
+				
+				while(table.rows.length > 1) {
+					table.deleteRow(table.rows.length - 1);
+				}
+				
 				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
 				var jsonObject = JSON.parse( xhr.responseText );
 				
 				for( var i=0; i<jsonObject.results.length; i++ )
 				{
-					contactList += jsonObject.results[i];
-					if( i < jsonObject.results.length - 1 )
-					{
-						contactList += "<br />\r\n";
-					}
+					var newRow = table.insertRow(table.rows.length);
+					var cell = newRow.insertCell(0);
+					
+					cell.innerHTML = jsonObject.results[i].firstname;
+					cell = newRow.insertCell(1);
+					cell.innerHTML = jsonObject.results[i].lastname;
+					cell = newRow.insertCell(2);
+					cell.innerHTML = jsonObject.results[i].email;
+					cell = newRow.insertCell(3);
+					cell.innerHTML = jsonObject.results[i].phoneNO;
+					cell = newRow.insertCell(4);
 				}
-				
-				document.getElementsByTagName("p")[0].innerHTML = contactList;
 			}
 		};
 		xhr.send(jsonPayload);
@@ -345,4 +356,4 @@ function openNewForm(){
 function closeNewForm(){
 	document.getElementById("newContact").style.display="none";
 	document.getElementById("contactInfo").style.display = "none";
-}
+} 
