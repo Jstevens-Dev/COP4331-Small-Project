@@ -174,7 +174,7 @@ function addContact()
 }
 
 function displayAllContacts(){
-    var jsonPayload = '{"userId : ' + userId + '}'};
+    var jsonPayload = '{"userId : ' + userId + '}';
     var url = urlBase + '/ReadContact' + extension;
 
     var contactList ="";
