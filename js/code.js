@@ -244,6 +244,7 @@ function searchContact()
 					cell = newRow.insertCell(3);
 					cell.innerHTML = jsonObject.results[i].phoneNO;
 					cell = newRow.insertCell(4);
+					cell.innerHTML = '<button id="deleteContactButton" onclick="deleteContact(' + jsonObject.results[i].contactID + ')">Delete</button>';
 				}
 			}
 		};
@@ -256,10 +257,16 @@ function searchContact()
 	
 }
 
-function deleteContact()
+function deleteContact( contactID )
 {
-
-
+	var table = document.getElementById("contactTable");
+	
+	var jsonPayload = '{"contactID" : ' + contactID + '}';
+	var url = urlBase + '/DeleteContact.' + extension;
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 }
 
 function updateContact()
