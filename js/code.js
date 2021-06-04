@@ -244,7 +244,10 @@ function searchContact()
 					cell = newRow.insertCell(3);
 					cell.innerHTML = jsonObject.results[i].phoneNO;
 					cell = newRow.insertCell(4);
-					cell.innerHTML = '<button id="deleteContactButton" onclick="deleteContact('+ (i + 1) + ', ' + jsonObject.results[i].contactID + ')">Delete</button>';
+					// ', ' + jsonObject.results[i].firstname + ', ' + jsonObject.results[i].lastname + ', ' + jsonObject.results[i].email + ', ' + jsonObject.results[i].phoneNO + 
+					cell.innerHTML = '<button type="button" id="updateContactButton" onclick="openForm(' + jsonObject.results[i].contactID + ')">Edit</button>';
+					cell = newRow.insertCell(5);
+					cell.innerHTML = '<button id="deleteContactButton" onclick="deleteContact(' + (i + 1) + ', ' + jsonObject.results[i].contactID + ')">Delete</button>';
 				}
 			}
 		};
@@ -351,9 +354,14 @@ function searchColor()
 	
 }
 
-function openForm(){
+// , firstname, lastname, email, phoneNO
+function openForm( contactID ){
 	document.getElementById("contactInfo").style.display = "block";
 	document.getElementById("newContact").style.display="none";
+	//document.getElementById("firstNameUpdate") = firstname;
+	//document.getElementById("lastNameUpdate") = lastname;
+	//document.getElementById("emailUpdate") = email;
+	//document.getElementById("phoneUpdate") = phoneNO;
 }
 
 function closeForm(){
