@@ -245,9 +245,9 @@ function searchContact()
 					cell.innerHTML = jsonObject.results[i].phoneNO;
 					cell = newRow.insertCell(4);
 					// ', ' + jsonObject.results[i].firstname + ', ' + jsonObject.results[i].lastname + ', ' + jsonObject.results[i].email + ', ' + jsonObject.results[i].phoneNO + 
-					cell.innerHTML = '<button type="button" id="updateContactButton" onclick="openForm(' + jsonObject.results[i].contactID + ')">Edit</button>';
+					cell.innerHTML = '<button type="button" id="updateContactButton" class="btn btn-info" onclick="openForm(' + jsonObject.results[i].contactID + ')"> <i class="fas fa-user-edit"></i> Edit </button>';
 					cell = newRow.insertCell(5);
-					cell.innerHTML = '<button id="deleteContactButton" onclick="deleteContact(' + (i + 1) + ', ' + jsonObject.results[i].contactID + ')">Delete</button>';
+					cell.innerHTML = '<button id="deleteContactButton" class="btn btn-danger" onclick="deleteContact(' + (i + 1) + ', ' + jsonObject.results[i].contactID + ')"> <i class="fas fa-user-minus"></i> Delete </button>';
 				}
 			}
 		};
