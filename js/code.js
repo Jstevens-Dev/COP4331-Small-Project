@@ -235,8 +235,8 @@ function searchContact()
 				{
 					var newRow = table.insertRow(table.rows.length);
 					var cell = newRow.insertCell(0);
-					var button = document.getElementById("deleteButton");
-					var button = document.getElementById("editButton");
+					var deleteButton = document.getElementById("deleteButton");
+					var editButton = document.getElementById("editButton");
 					
 					cell.innerHTML = jsonObject.results[i].firstname;
 					cell = newRow.insertCell(1);
@@ -247,9 +247,11 @@ function searchContact()
 					cell.innerHTML = jsonObject.results[i].phoneNO;
 					cell = newRow.insertCell(4);
 					// ', ' + jsonObject.results[i].firstname + ', ' + jsonObject.results[i].lastname + ', ' + jsonObject.results[i].email + ', ' + jsonObject.results[i].phoneNO + 
-					cell.innerHTML = '<button type="button" id="updateContactButton" onclick="openForm(' + jsonObject.results[i].contactID + ')">Edit</button>';
+					cell.innerHTML = deleteButton.onclick = openForm(' + jsonObject.results[i].contactID + ');
+					//'<button type="button" id="updateContactButton" onclick="openForm(' + jsonObject.results[i].contactID + ')">Edit</button>';
 					cell = newRow.insertCell(5);
-					cell.innerHTML = '<button id="deleteContactButton" onclick="deleteContact(' + (i + 1) + ', ' + jsonObject.results[i].contactID + ')">Delete</button>';
+					cell.innerHTML = editButton.onclick = deleteContact(' + (i + 1) + ', ' + jsonObject.results[i].contactID + ');
+					//'<button id="deleteContactButton" onclick="deleteContact(' + (i + 1) + ', ' + jsonObject.results[i].contactID + ')">Delete</button>';
 				}
 			}
 		};
