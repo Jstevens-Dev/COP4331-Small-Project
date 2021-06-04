@@ -235,6 +235,8 @@ function searchContact()
 				{
 					var newRow = table.insertRow(table.rows.length);
 					var cell = newRow.insertCell(0);
+					var button = document.getElementById("deleteButton");
+					var button = document.getElementById("editButton");
 					
 					cell.innerHTML = jsonObject.results[i].firstname;
 					cell = newRow.insertCell(1);
