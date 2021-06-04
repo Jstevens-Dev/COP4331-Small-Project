@@ -1,12 +1,3 @@
-<!?php
-    session_start();
-    if(isset($_SESSION['userName']) && $_SESSION['userName'] != ''){
-        //this user is logged in and has access
-    }else{
-        //redirect back to login page
-        header('Location: Login.html');
-    }
-?>
 <DOCTYPE html>
 <html>
 <head>
@@ -48,7 +39,7 @@
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
-                        <th>Phone Number
+                        <th>Phone Number</th>
                         <th>Action</th>
                     </tr>   
                 </thead>
