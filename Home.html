@@ -1,0 +1,121 @@
+    
+<DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script type="text/javascript" src="js/code.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() 
+        {
+            readCookie();
+        }, false);
+        </script>
+    <title>Contact Manager</title>
+
+</head>
+
+<nav class="navbar navbar-light" style="background-color: #006eff;">
+    <h1 style="color:white;">Contact Manager</h1>
+    <form class="form-inline">
+        <button type="button" class="btn btn-success" onclick="openNewForm();"> <i class="fas fa-user-plus"></i> Add Contact </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input class="form-control mr-sm-2" id="searchText" type="search" placeholder="Search Contact..." aria-label="Search">
+        <button type="button" class="btn btn-outline-light" onclick="searchContact();"> <i class="fas fa-search"></i> </i></button> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-warning" id="loginButton"  onclick="doLogout();"> <i class="fas fa-sign-out-alt"></i> Logout </button>
+      </form>
+  </nav>
+
+<body>
+    <div>
+        <div class="container">
+            <table class="table" id="contactTable">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Action</th>
+						<th></th>
+                    </tr>   
+                </thead>
+                <tbody id="tBody">
+                    </tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>                     
+                    </tr>
+                </tbody>
+            </table>
+                <span id="contactSearchResult"></span>
+            </div>
+            <div id="contactInfo" style="display: none;">
+                <h2 style="color:black;">Edit Contact</h2>
+
+                <div id="firstNameUpdate" class="txt_field" >
+                    <input type="text" required>
+                    <span></span>
+                    <label>First Name</label>
+                </div>
+                <div id="lastNameUpdate" class="txt_field">
+                    <input type="text" required>
+                    <span></span>
+                    <label>Last Name</label>
+                </div>
+                <div id="emailUpdate" class="txt_field">
+                    <input type="text" required>
+                    <span></span>
+                    <label>Email</label>
+                </div>
+                <div id="phoneUpdate" class="txt_field">
+                    <input type="text" required>
+                    <span></span>
+                    <label>Phone Number</label>
+                </div>
+                <button type="button" id="cancel" class="btn btn-outline-primary" onclick="closeForm();">Cancel</button>
+                <span></span>
+                <button type="submit" class="btn btn-outline-success" onclick="updateContact();">Update</button>
+                
+            </div>
+            <div id="newContact" style="display: none;">
+                <h2 style="color:black;">Add Contact</h2>
+                <div class="txt_field" >
+                    <input id="newContactFirstName" type="text" required>
+                    <span></span>
+                    <label>First Name</label>
+                </div>
+                <div class="txt_field">
+                    <input id="newContactLastName" type="text" required>
+                    <span></span>
+                    <label>Last Name</label>
+                </div>
+                <div class="txt_field">
+                    <input id="newContactEmail" type="text" required>
+                    <span></span>
+                    <label>Email</label>
+                </div>
+                <div class="txt_field">
+                    <input id="newContactPhoneNO" type="text" required>
+                    <span></span>
+                    <label>Phone Number</label>
+                </div>
+                <button type="button" id="cancel" class="btn btn-outline-primary" onclick="closeNewForm();">Cancel</button>
+                <span></span>
+                <button type="submit" class="btn btn-outline-success" onclick="addContact();">Create</button>
+                <div>
+                    <span id="addContactResult"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

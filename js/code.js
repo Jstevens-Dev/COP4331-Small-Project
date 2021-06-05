@@ -44,7 +44,7 @@ function doLogin()
 
 				saveCookie();
 	
-				window.location.href = "index.html";
+				window.location.href = "Home.html";
 				
 			}
 		};
@@ -90,7 +90,7 @@ function readCookie()
 	
 	if( userId < 0 )
 	{
-		window.location.href = "Login.html";
+		window.location.href = "index.html";
 	}
 	else
 	{
@@ -104,7 +104,7 @@ function doLogout()
 	firstName = "";
 	lastName = "";
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-	window.location.href = "Login.html";
+	window.location.href = "index.html";
 }
 
 function addUser()
@@ -132,7 +132,7 @@ function addUser()
 		};
 		xhr.send(jsonPayload);
 
-		window.location.href = "Login.html";
+		window.location.href = "index.html";
 	}
 	catch(err)
 	{
@@ -228,8 +228,8 @@ function searchContact()
 					table.deleteRow(table.rows.length - 1);
 				}
 				
-				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
 				var jsonObject = JSON.parse( xhr.responseText );
+				document.getElementById("contactSearchResult").innerHTML = jsonObject.results.length + ' contact(s) retrieved.';
 				
 				for( var i=0; i<jsonObject.results.length; i++ )
 				{
@@ -244,8 +244,9 @@ function searchContact()
 					cell = newRow.insertCell(3);
 					cell.innerHTML = jsonObject.results[i].phoneNO;
 					cell = newRow.insertCell(4);
-					// ', ' + jsonObject.results[i].firstname + ', ' + jsonObject.results[i].lastname + ', ' + jsonObject.results[i].email + ', ' + jsonObject.results[i].phoneNO + 
-					cell.innerHTML = '<button type="button" id="updateContactButton" class="btn btn-info" onclick="openForm(' + jsonObject.results[i].contactID + ')"> <i class="fas fa-user-edit"></i> Edit </button>';
+					// ', ' + jsonObject.results[i].firstname + ', ' + jsonObject.results[i].lastname + ', ' + jsonObject.results[i].email + ', ' + jsonObject.results[i].phoneNO +
+					// ' + jsonObject.results[i].contactID + '
+					cell.innerHTML = '<button type="button" id="updateContactButton" class="btn btn-info" onclick="openForm()"> <i class="fas fa-user-edit"></i> Edit </button>';
 					cell = newRow.insertCell(5);
 					cell.innerHTML = '<button id="deleteContactButton" class="btn btn-danger" onclick="deleteContact(' + (i + 1) + ', ' + jsonObject.results[i].contactID + ')"> <i class="fas fa-user-minus"></i> Delete </button>';
 				}
@@ -277,9 +278,34 @@ function deleteContact( rowIndex, contactID )
 }
 
 function updateContact()
-{
-
-
+{	
+	var newFirstName = document.getElementById("firstNameUpdate");
+	var newLastName = document.getElementById("lastNameUpdate");
+	var newEmail = document.getElementById("emailUpdate");
+	var newPhoneNO = document.getElementById("phoneUpdate");
+	document.getElementById("updateContactResult").innerHTML = "";
+	
+	var jsonPayload = '{"firstname" : "' + newFirstName + '", "lastname" : "' + newLastName + '", "email" : "' + newEmail + '", "phoneNO" : "' + newPhoneNO + '", "contactID" : ' + currentContactID + '}';
+	var url = urlBase + '/UpdateContact.' + extension;
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open("PUT", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				document.getElementById("updateContactResult").innerHTML = "Contact has been updated.";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("updateContactResult").innerHTML = err.message;
+	}
 }
 
 function addColor()
@@ -355,10 +381,11 @@ function searchColor()
 }
 
 // , firstname, lastname, email, phoneNO
-function openForm( contactID ){
+function openForm(firstName){
+	currentContactID = "";
 	document.getElementById("contactInfo").style.display = "block";
 	document.getElementById("newContact").style.display="none";
-	//document.getElementById("firstNameUpdate") = firstname;
+	//document.getElementById("firstNameUpdate").value = firstName;
 	//document.getElementById("lastNameUpdate") = lastname;
 	//document.getElementById("emailUpdate") = email;
 	//document.getElementById("phoneUpdate") = phoneNO;

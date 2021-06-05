@@ -3,10 +3,10 @@
 	$inData = getRequestInfo();
 	
 	$id = 0;
-	$firstName = "";
-	$lastName = "";
-	$userName = "";
-	$password = "";
+	$firstName = $inData["firstname"];
+	$lastName = $inData["lastname"];
+	$userName = $inData["username"];
+	$password = $inData["password"];
 
 	$conn = new mysqli("localhost", "Jstevens", "30Dhsaj&n", "COP4331"); 	
 	if( $conn->connect_error )
@@ -20,12 +20,13 @@
 			returnWithError( "stmt is null." );
 		} else {
 			$user_id = null;
-			$stmt->bind_param("sssss", $user_id, $inData["firstname"], $inData["lastname"], $inData["username"], $inData["password"]);
+			$stmt->bind_param("sssss", $user_id, $firstName, $lastName, $userName, $password);
 		}
 		$stmt->execute();
 
 		$stmt->close();
 		$conn->close();
+		returnWithError("");
 	}
 	
 	function getRequestInfo()
