@@ -244,9 +244,9 @@ function searchContact()
 					cell = newRow.insertCell(3);
 					cell.innerHTML = jsonObject.results[i].phoneNO;
 					cell = newRow.insertCell(4);
-					// ', ' + jsonObject.results[i].firstname + ', ' + jsonObject.results[i].lastname + ', ' + jsonObject.results[i].email + ', ' + jsonObject.results[i].phoneNO +
+					// ' + jsonObject.results[i].contactID + ', ' + jsonObject.results[i].firstname + ', ' + jsonObject.results[i].lastname + ', ' + jsonObject.results[i].email + ', ' + jsonObject.results[i].phoneNO + '
 					// ' + jsonObject.results[i].contactID + '
-					cell.innerHTML = '<button type="button" id="updateContactButton" class="btn btn-info" onclick="openForm()"> <i class="fas fa-user-edit"></i> Edit </button>';
+					cell.innerHTML = '<button type="button" id="updateContactButton" class="btn btn-info" onclick="openForm('+ jsonObject.results[i].contactID +')"> <i class="fas fa-user-edit"></i> Edit </button>';
 					cell = newRow.insertCell(5);
 					cell.innerHTML = '<button id="deleteContactButton" class="btn btn-danger" onclick="deleteContact(' + (i + 1) + ', ' + jsonObject.results[i].contactID + ')"> <i class="fas fa-user-minus"></i> Delete </button>';
 				}
@@ -278,14 +278,15 @@ function deleteContact( rowIndex, contactID )
 }
 
 function updateContact()
-{	
-	var newFirstName = document.getElementById("firstNameUpdate");
-	var newLastName = document.getElementById("lastNameUpdate");
-	var newEmail = document.getElementById("emailUpdate");
-	var newPhoneNO = document.getElementById("phoneUpdate");
+{
+	//console.log("contactID value: " + contactID);
+	var newFirstName = document.getElementById("firstNameUpdate").value;
+	var newLastName = document.getElementById("lastNameUpdate").value;
+	var newEmail = document.getElementById("emailUpdate").value;
+	var newPhoneNO = document.getElementById("phoneUpdate").value;
 	document.getElementById("updateContactResult").innerHTML = "";
 	
-	var jsonPayload = '{"firstname" : "' + newFirstName + '", "lastname" : "' + newLastName + '", "email" : "' + newEmail + '", "phoneNO" : "' + newPhoneNO + '", "contactID" : ' + currentContactID + '}';
+	var jsonPayload = '{"firstname" : "' + newFirstName + '", "lastname" : "' + newLastName + '", "email" : "' + newEmail + '", "phoneNO" : "' + newPhoneNO + '", "contactID" : ' + contactID + '}';
 	var url = urlBase + '/UpdateContact.' + extension;
 	
 	var xhr = new XMLHttpRequest();
@@ -380,15 +381,12 @@ function searchColor()
 	
 }
 
-// , firstname, lastname, email, phoneNO
-function openForm(firstName){
-	currentContactID = "";
+// contactID, firstName, lastName, email, phoneNO
+function openForm( currentContactID ){
+	contactID = 0;
 	document.getElementById("contactInfo").style.display = "block";
 	document.getElementById("newContact").style.display="none";
-	//document.getElementById("firstNameUpdate").value = firstName;
-	//document.getElementById("lastNameUpdate") = lastname;
-	//document.getElementById("emailUpdate") = email;
-	//document.getElementById("phoneUpdate") = phoneNO;
+	contactID = currentContactID;
 }
 
 function closeForm(){
@@ -402,4 +400,4 @@ function openNewForm(){
 function closeNewForm(){
 	document.getElementById("newContact").style.display="none";
 	document.getElementById("contactInfo").style.display = "none";
-} 
+}
