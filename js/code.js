@@ -320,6 +320,11 @@ function openForm( currentContactID ){
 
 function closeForm(){
 	document.getElementById("contactInfo").style.display = "none";
+	document.getElementById("firstNameUpdate").value = "";
+	document.getElementById("lastNameUpdate").value = "";
+	document.getElementById("emailUpdate").value = "";
+	document.getElementById("phoneUpdate").value = "";
+	document.getElementById("updateContactResult").innerHTML ="";
 }
 
 function openNewForm(){
@@ -329,4 +334,9 @@ function openNewForm(){
 
 function closeNewForm(){
 	document.getElementById("newContact").style.display="none";
+	document.getElementById("newContactFirstName").value = "";
+	document.getElementById("newContactLastName").value = "";
+	document.getElementById("newContactEmail").value = "";
+	document.getElementById("newContactPhoneNO").value = "";
+	document.getElementById("addContactResult").innerHTML ="";
 }
