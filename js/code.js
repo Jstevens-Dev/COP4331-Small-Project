@@ -114,6 +114,21 @@ function addUser()
 	var userName = document.getElementById("userName").value;
 	var password = document.getElementById("password").value;
 	var hash = md5( password );
+
+	if(firstName === "") {
+		document.getElementById("addUserResult").innerHTML = "First name is required";
+		return;
+	} else if(lastName === "") {
+		document.getElementById("addUserResult").innerHTML = "Last name is required";
+		return;
+	} else if(userName === "") {
+		document.getElementById("addUserResult").innerHTML = "Username is required";
+		return;
+	} else if(password === "") {
+		document.getElementById("addUserResult").innerHTML = "Password is required";
+		return;
+	}
+
 	document.getElementById("addUserResult").innerHTML = "";
 	
 	var jsonPayload = '{"firstname" : "' + firstName + '", "lastname" : "' + lastName + '", "username" : "' + userName + '", "password" : "' + hash + '"}';
