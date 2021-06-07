@@ -10,7 +10,7 @@ body{
   padding: 0;
   background: #fafafa;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
 }
 .box{
   position: absolute;
@@ -158,4 +158,9 @@ div .register_result{
 div .addContactResult{
   color: blue;
   text-align: center;
+}
+
+div .container{
+  padding-top: 0px;
+  padding-bottom: 50px;
 }
