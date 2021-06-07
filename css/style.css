@@ -8,7 +8,7 @@
 body{
   margin: 0;
   padding: 0;
-  background: white;
+  background: #fafafa;
   height: 100vh;
   overflow: hidden;
 }
@@ -20,7 +20,7 @@ body{
   width: 400px;
   background: white;
   border-radius: 40px;
-  box-shadow: 0px 0px 20px 10px #eeeeee;
+  box-shadow: 0px 0px 20px 10px #dadada;
   padding: 40px;
 }
 .box h1{
